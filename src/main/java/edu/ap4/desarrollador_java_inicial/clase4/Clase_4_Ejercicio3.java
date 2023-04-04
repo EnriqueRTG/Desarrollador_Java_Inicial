@@ -94,7 +94,9 @@ public class Clase_4_Ejercicio3 {
     }
 
     private static String operarTexto(char letraDeOperacion, String textoObtenido, int valorDeDesplazamiento) {
-        return (letraDeOperacion == 'c') ? codificandoTexto(textoObtenido, valorDeDesplazamiento) : decodificandoTexto(textoObtenido, valorDeDesplazamiento);
+        return (letraDeOperacion == 'c') ? 
+                codificandoTexto(textoObtenido, valorDeDesplazamiento) 
+                : decodificandoTexto(textoObtenido, valorDeDesplazamiento);
     }
 
     private static String codificandoTexto(String textoParaCodificar, int valorDeDesplazamiento) {
