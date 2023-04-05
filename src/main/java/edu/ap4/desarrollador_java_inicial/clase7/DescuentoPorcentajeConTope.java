@@ -4,33 +4,36 @@
  */
 package edu.ap4.desarrollador_java_inicial.clase7;
 
-import edu.ap4.desarrollador_java_inicial.clase5.Descuento;
+import edu.ap4.desarrollador_java_inicial.clase5.DescuentoPorcentaje;
 import java.time.LocalDate;
 
 /**
  *
  * @author Enrique
  */
-public class DescuentoPorcentajeConTope extends Descuento {
-    
-    private Double fijo;
+public class DescuentoPorcentajeConTope extends DescuentoPorcentaje {
 
-    public DescuentoPorcentajeConTope(Double fijo, LocalDate comienzo, LocalDate fin) {
-        super(comienzo, fin);
-        this.setFijo(fijo);
+    private Double tope;
+
+    public DescuentoPorcentajeConTope(Double tope, Double porcentaje, LocalDate comienzo, LocalDate fin) {
+        super(porcentaje, comienzo, fin);
+        this.setTope(tope);
     }
 
-    public Double getFijo() {
-        return fijo;
+    public Double getTope() {
+        return this.tope;
     }
 
-    private void setFijo(Double fijo) {
-        this.fijo = fijo;
+    private void setTope(Double tope) {
+        this.tope = tope;
     }
 
     @Override
     public Double descuento(Double montoSubtotal) {
-        throw new UnsupportedOperationException("Not supported yet."); // Generated from nbfs://nbhost/SystemFileSystem/Templates/Classes/Code/GeneratedMethodBody
+        if (montoSubtotal * this.getPorcentaje() < this.getTope()) {
+            return montoSubtotal * this.getPorcentaje();
+        }
+        return this.getTope();
     }
-    
+
 }
